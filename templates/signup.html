@@ -1,0 +1,127 @@
+    {% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signin.css' %}">
+    <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Sign up</title>
+</head>
+<body>
+<div class="container">
+    <div id="login_form">
+        <div class="login_heading">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item col-6"></li>
+                <li class="nav-item col-3">
+                    <a class="nav-link text-center col-12 active" id="pills-doctor-tab" data-toggle="pill"
+                       href="#pills-doctor" role="tab" aria-controls="pills-home" aria-selected="true">Doctor</a>
+                    <div class="arrow d-none d-md-block" id="doc_arrow"></div>
+                </li>
+                <li class="nav-item col-3">
+                    <a class="nav-link text-center  col-12" id="pills-patient-tab" data-toggle="pill"
+                       href="#pills-patient" role="tab" aria-controls="pills-profile" aria-selected="false">Patient</a>
+                    <div class="arrow d-none d-md-block" id="pat_arrow"></div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-doctor" role="tabpanel" aria-labelledby="pills-doctor-tab">
+                <div class="row">
+                    <img src="{% static 'img/doctor.png' %}" class="img-fluid col-6">
+                    <form class="col-6" action="{% url 'signin' 'doc' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="username">USERNAME</label>
+                            <input type="text" name="username" value="{{usr}}" id="username" class="input-text form-control" required><p class="text-danger font-weight-bold">{{ usr_err }}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">EMAIL</label>
+                            <input type="email" name="your_email" value="{{email}}" id="your_email" class="input-text form-control" required ><p class="text-danger font-weight-bold">{{ email_err }}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">PASSWORD</label>
+                            <input type="password" name="password" id="password" class="input-text form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">CONFIRM PASSWORD</label>
+                            <input type="password" name="confirm" id="confirm_password" class="input-text form-control" required><p class="text-danger font-weight-bold">{{ pwd_err }}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="mobileno">MOBILE</label>
+                            <input type="tel" name="mobile" id="mobileno" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="register" class="register btn btn-primary btn-block" id="log_button" value="Register"><br>
+                            <label>Already have an account?&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            <a href="{% url 'login' %}" type="submit" class="btn btn-warning" id="orange_but">LOGIN</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-patient" role="tabpanel" aria-labelledby="pills-patient-tab">
+                <div class="row">
+                    <img src="{% static 'img/patient.png' %}" class="img-fluid col-6">
+                    <form class="col-6" action="{% url 'signin' 'pat' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="username">USERNAME</label>
+                            <input type="text" name="username" value="{{usr}}" id="username" class="input-text form-control" required><p class="text-danger font-weight-bold">{{ usr_err }}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">EMAIL</label>
+                            <input type="email" name="your_email" value="{{email}}" id="your_email" class="input-text form-control" required ><p class="text-danger font-weight-bold">{{ email_err }}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">PASSWORD</label>
+                            <input type="password" name="password" id="password" class="input-text form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">CONFIRM PASSWORD</label>
+                            <input type="password" name="confirm" id="confirm_password" class="input-text form-control" required><p class="text-danger font-weight-bold">{{ pwd_err }}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="mobileno">MOBILE</label>
+                            <input type="tel" name="mobile" id="mobileno" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="register" class="register btn btn-primary btn-block" id="log_button" value="Register"><br>
+                            <label>Already have an account?&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            <a href="{% url 'login' %}" type="submit" class="btn btn-warning" id="orange_but">LOGIN</a>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="{% static 'js/login_nav.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!doctype html>
+
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css'}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
+    <title>Form</title>
+</head>
+<body>
+<!-- Image and text -->
+<!-- <nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="assets/img/logo.png" width="35" height="35" alt=""> <span>Dr.Here</span>
+  </a>
+</nav>
+ -->
+<div class="header">
+    <div class="header-left">
+        <a href="index.html" class="logo">
+            <img src="/static/img/doc/logo.png" width="35" height="35" alt=""> <span>Dr.Here</span>
+        </a>
+      
+            
+ 
+    </div>
+    <a href="{% url 'patient' %}" class="float-right" style="color: white;font-size: 18px;padding-right: 25px;padding-top: 8px;">Logout</a>
+</div>
+<div class="container form">
+    <h1>{{ id_no }}</h1>
+    <form action="{% url 'doc_profile' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label class="h">Personal Information</label>
+
+        <div class="row">
+            <div class="form-group col-4">
+
+                <input type="text" class="form-control" placeholder ="username" name="username" value="{{ username }}" readonly>
+            </div>
+
+            <div class="form-group col-4">
+
+                <input type="email" class="form-control" placeholder="email" name="email" value="{{ email }}" >
+            </div>
+
+            <div class="form-group col-4">
+
+                <input type="tel" class="form-control" placeholder = "mobile" name="mobile" value="{{ mobile }}" >
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-3">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile" name="prof_pic" required>
+                    <label class="custom-file-label" for="customFile">Profile pic</label>
+                </div>
+            </div>
+            <div class="form-group col-3">
+                <select name="gender" class="custom-select" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+            <div class="form-group col-3">
+                <label>DOB<input id="datepicker" type="date" name="dob" class="form-control" placeholder="DOB" required></label>
+
+                <script>
+                    $('#datepicker').datepicker({
+                        uiLibrary: 'bootstrap4'
+                    });
+                </script>
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="form-group col-2">
+                <input type="text" class="form-control" name="door_no" placeholder="Door no" required>
+            </div>
+            <div class="form-group col-5">
+                <input type="text" class="form-control" name="st_name" placeholder="Street name" required>
+            </div>
+            <div class="form-group col-5">
+                <input type="text" class="form-control" name="area" placeholder="Area" required>
+            </div>
+            <div class="form-group col-4">
+                <input type="text" class="form-control" name="city" placeholder="City" required>
+            </div>
+            <div class="form-group col-4">
+                <input type="text" class="form-control" name="state" placeholder="State" required>
+            </div>
+            <div class="form-group col-4">
+                <input type="text" class="form-control" name="zip_code" placeholder="Zip code" required>
+            </div>
+        </div>
+        <label class="h">Educational Information</label>
+        <div class="row">
+            <div class="form-group col-6">
+                <input type="text" class="form-control" name="degree" placeholder="Degree" required>
+            </div>
+            <div class="form-group col-6">
+                <select name="department" class="form-control" required>
+                    <option>Select Your Department</option>
+                    <option  value="Cardiology">Cardiology</option>
+                    <option  value="Opthalmology">Opthalmology</option>
+                    <option  value="Neuralogy">Neurology</option>
+                    <option  value="Dental">Dental</option>
+                </select>
+            </div>
+        </div>
+        <label class="h">Working Information</label>
+        <div class="row">
+            <div class="form-group col-12">
+                <input type="text" class="form-control" name="hos_name" placeholder="Hospital name" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-5">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" name="id_proof" id="customFile" required>
+                    <label class="custom-file-label" for="customFile">ID Proof</label>
+                </div>
+            </div>
+            <div class="form-group col-4">
+                <input type="number" class="form-control" name="id_no" placeholder="ID No" required>
+            </div>
+            <div class="form-group col-3">
+                <input type="number" class="form-control" name="exp" placeholder="Experience" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-2">
+                <input type="text" class="form-control" name="hos_door_no" placeholder="Hospital Door no" required>
+            </div>
+            <div class="form-group col-5">
+                <input type="text" class="form-control" name="hos_st_name" placeholder="Hospital Street name" required>
+            </div>
+            <div class="form-group col-5">
+                <input type="text" class="form-control" name="hos_area" placeholder="Hospital Area" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-4">
+                <input type="text" class="form-control" name="hos_city" placeholder="City" required>
+            </div>
+            <div class="form-group col-4">
+                <input type="text" class="form-control" name="hos_state" placeholder="State" required>
+            </div>
+            <div class="form-group col-4">
+                <input type="text" class="form-control" name="hos_zip_code" placeholder="Zip code" required>
+            </div>
+        </div>
+        <div class="form-group">
+             <!-- <input type="submit" class="btn btn-primary btn-block" value="SUBMIT" data-toggle="modal" data-target="#exampleModal"> -->
+             <button type="button"  class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">SUBMIT
+</button>
+        </div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">You will be verified soon</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        
+        <div class="modal-footer">
+        <input type="submit" class="btn btn-success" value="Logout">
+      </div>
+      </div>
+    </div>
+  </div>
+
+    </form>
+
+
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+html,body{
+	background-color: steelblue !important;
+}
+#login_form{
+	margin:100px 0;
+	background-color: white;
+}
+
+.login_heading ul li{
+	margin: 50px auto 0;
+}
+
+#doc_img{
+	margin-top: 0;
+	max-height: 350px;
+}
+
+input,#log_button{
+	max-width: 500px;
+}
+
+input:not([type="checkbox"]){
+	border: 2px solid transparent;
+    border-bottom: 2px solid #e5e5e5;
+    outline: none;
+    appearance: unset;    
+}
+
+#orange_but{
+	background-color: #FF8000;
+	border:  #FF8000;
+	color: white;
+}
+#login_form input:focus {
+	border: 0px white;
+	border-bottom: 2px solid #FF8000;
+	outline: 0 !important;
+	box-shadow: none !important;
+}
+
+.nav-pills .nav-link{
+    padding: 35px 30px !important;
+ 	color: black;
+ 	border: none;
+}
+.nav-pills .nav-link:hover{
+    padding: 35px 30px !important;
+    background-color:#2f89fc; 
+ 	color: white;
+ 	border: none;
+}
+
+.arrow{
+	margin-left: 105px;
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid #2f89fc;
+
+}

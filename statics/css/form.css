@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,500,700');
+html {
+	height: 100%;
+	background: #667db6;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.form{
+	padding-top: 100px;
+}
+.container{
+	background: #667db6;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+body {
+	font-family: 'Rubik', sans-serif;
+	font-size: 0.875rem;
+	color: black;
+	overflow-x: hidden;
+	height: 100%;
+	background: #667db6;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.header {
+	background-color: #009efb;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 1039;
+	height: 50px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.header .header-left {
+	float: left;
+	height: 50px;
+	padding: 0 20px;
+	position: relative;
+	text-align: center;
+	width: 230px;
+	z-index: 1;
+}
+.logo {
+	align-items: center;
+	display: flex;
+	height: 50px;
+	justify-content: center;
+}
+.logo span {
+	color: #fff;
+	font-size: 18px;
+	font-weight: 500;
+	margin-left: 10px;
+}
+.h{
+	font-size: 18px;
+	padding: 10px;
+}
