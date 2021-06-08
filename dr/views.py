@@ -213,6 +213,7 @@ def ap_det(request):
     else:
         return render(request, 'patients/index.html')
 
+# used to send email
 def ap_fix(request, usr=None, i=None):
     a = pat_ap.objects.get(ap_no=i)
     a.doc_name = usr
@@ -225,7 +226,7 @@ def ap_fix(request, usr=None, i=None):
     send_mail(
             'Appointment Details',
             'Dr '+a.doc_name+', patient name '+a.name+' appointment at '+a.date+' on '+a.time+' login for more details',
-            'reahaansheriff@gmail.com',
+            '', #from mail address
             [b,c],
             fail_silently=False,
             )

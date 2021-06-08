@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
-
+from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -19,10 +19,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '==_i9)-s_%y7^ime@jv(+d3q)i^et1%ilqa0(45o1+9b=(ka(r'
+SECRET_KEY =  config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -68,10 +68,10 @@ TEMPLATES = [
 
 # Email settings
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST = config('mail_host')
+EMAIL_PORT = config('mail_port')
+EMAIL_HOST_USER = '' # from mail address
+EMAIL_HOST_PASSWORD = '' # password
 
 WSGI_APPLICATION = 'SRP.wsgi.application'
 
